@@ -21,7 +21,6 @@ export async function getDefaultAdapter(): Promise<GPUAdapter> {
 }
 
 let gpu: Promise<GPU> | 'failed' | undefined;
-
 function getGPU(): Promise<GPU> {
   if (gpu === undefined) {
     gpu = 'failed';
@@ -49,7 +48,6 @@ async function locateGPUInterface(): Promise<GPU> {
 }
 
 let dawn: typeof import('../../../../third_party/dawn/linux/index.node') | undefined;
-
 async function tryInitDawn(): Promise<GPU> {
   dawn = await import('../../../../third_party/dawn/linux/index.node');
   dawn.GPU.$setPlatform(process.platform);

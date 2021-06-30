@@ -28,7 +28,6 @@ export class DevicePool {
         throw ex;
       }
     }
-
     assert(!this.holder.acquired, 'Device was in use on DevicePool.acquire');
     this.holder.acquired = true;
 
